@@ -1,0 +1,100 @@
+/*  
+Esse pen faz parte de uma série de desenhos que serão criados por mim, unicamente com o objetivo de aprofundar as minhas habilidades em CSS (Que pela imundice aqui vista, você pode perceber que até então não são muitas).
+*/
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background: #FEF2D8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fundo {
+  position: relative;
+  margin: 0px auto;
+  width: 600px;
+  height: 400px;
+}
+
+.flor-1 {
+  position: absolute;
+  top: 140px;
+  left: 120px;
+  animation: escorre .9s infinite;
+}
+.flor-2 {
+  position: absolute;
+  top: 100px;
+  left: 290px;
+  animation: escorree 1s infinite;
+}
+.flor-3 {
+  position: absolute;
+  top: 120px;
+  left: 480px;
+  animation: escorre .8s infinite;
+}
+.rosa-1 {
+  position: absolute;
+}
+.petala-1 {
+  position: absolute;
+  width: 30px;
+  height: 110px;
+  border-radius: 50%;
+  background: #9d87d2;
+}
+.petala-2 {
+  position: absolute;
+  transform: rotate(60deg);
+  width: 30px;
+  height: 110px;
+  border-radius: 50%;
+  background: #9d87d2;
+}
+.petala-3 {
+  position: absolute;
+  transform: rotate(120deg);
+  width: 30px;
+  height: 110px;
+  border-radius: 50%;
+  background: #9d87d2;
+}
+.centro {
+  position: absolute;
+  top: 38px;
+  left: -2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ffe28c;
+}
+
+div.rosa-1 > div.petala-1 {
+  background: #af9ed5;
+  transform: rotate(330deg);
+}
+div.rosa-1 > div.petala-2 {
+  background: #af9ed5;
+  transform: rotate(270deg);
+}
+div.rosa-1 > div.petala-3 {
+  background: #af9ed5;
+  transform: rotate(210deg);
+}
+
+@keyframes escorre {
+  100%   {transform: translateY(0)}
+  0% {transform: translateY(150px)}
+}
+@keyframes escorree {
+  100%   {transform: translateY(0)}
+  0% {transform: translateY(250px)}
+}
+@keyframes escorreee {
+  100%   {transform: translateY(0)}
+  0% {transform: translateY(350px)}
+}

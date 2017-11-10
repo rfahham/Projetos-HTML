@@ -1,0 +1,35 @@
+Usando o método Scale da propriedade Transform
+
+A propriedade transform possui um método chamado scale. Ele é muito usado para dar um efeito de “zoom” em imagens. O que ele faz é aumentar proporcionalmente o elemento levando em consideração seu tamanho original.
+
+
+Um exemplo simples de utilização do método scale:
+
+HTML
+
+<a href="#">
+  <img src="http://lorempixel.com/image_output/city-q-c-1024-768-4.jpg">
+</a>
+
+
+CSS
+
+a{
+  display: block;
+  width: 300px;
+  overflow: hidden;
+}
+a img{
+  width: 100%;
+  -webkit-transition: all 1s ease 0s;
+  -moz-transition: all 1s ease 0s;
+  -o-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+a:hover img{
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p id="test"></p>
+
+<script>
+	var person = {
+		firstName:"Ricardo",
+		lastName:"Fahham",
+		age:"46",
+		pets:["Frida", "Bella", "Misse"],
+		fullName:function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+
+	document.getElementById("test").innerHTML = person.fullName();
+	// document.getElementById("test").innerHTML = person.pets[0];
+</script>
+</body>

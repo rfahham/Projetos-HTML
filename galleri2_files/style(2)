@@ -1,0 +1,2 @@
+/* fontSmoothing.less Thu, 26 May 2016 13:26:47 PST */
+.hasFontSmoothing-false body{font-family: Arial, sans-serif}.hasFontSmoothing-false .header-1,.hasFontSmoothing-false .header-3,.hasFontSmoothing-false .ms100,.hasFontSmoothing-false .ms300,.hasFontSmoothing-false .ms500,.hasFontSmoothing-false .ms700{font-family: Tahoma, Arial, sans-serif}.hasFontSmoothing-false #navHeader li.navBlock > a{font-size: 12px}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temperatura</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        
+    var lat = ''
+    var long = ''
+    var urel = 'https://api.darksky.net/forecast/490e02d25af60d567f302f64df28e049/';
+    
+    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude
+        long = position.coords.longitude
+        urel =urel + lat + ',' + long + '?units=si'
+    
+        $.ajax({
+            url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ lat+','+long+'&sensor=true',
+            success: function(json){
+                $('#location').html(json.results[1].formatted_address)
+            }
+        });
+    
+        $.ajax({
+            url: urel,
+            dataType: 'jsonp',
+            success: function(data) {
+                $('#open').animate({width: '300px'}, 1300);
+                
+                $('#forecast').html(data.currently.summary);
+                console.log(urel);
+                var temp = Math.floor(data.currently.temperature);
+                $('#temp').html(temp + '&deg;C');
+                console.log($('#temp').text())
+                var date = new Date(data.currently.time*1000);
+                var formattedTime = ('0' + date.getHours()).slice(-2) + ':' + ('0'+date.getMinutes()).slice(-2);
+                $('#time').html('Updated at: ' + formattedTime);
+                $('#infor').html('Feels like: ' + temp +'&deg;C' + '&emsp;&nbsp;' + 'Wind: ' +'<i class="wi wi-wind from-'+data.currently.windBearing +'-deg"></i>' + ' '+ data.currently.windSpeed + ' m/s' + '&emsp;&nbsp;' + 'Humidity: ' + Math.floor(data.currently.humidity*100) +'%');
+                
+                //Set icon
+                var icon = new Skycons({"color":"white"});
+                icon.add("icon1", data.currently.icon);
+                icon.add("next_icon", data.daily.data[0].icon);
+                icon.add("next1_icon", data.daily.data[1].icon);
+                icon.add("next2_icon", data.daily.data[2].icon);
+                icon.add("next3_icon", data.daily.data[3].icon);
+                icon.add("next4_icon", data.daily.data[4].icon);
+                icon.add("next5_icon", data.daily.data[5].icon);
+                icon.play();
+                //Change background
+                if (data.currently.icon.indexOf('clear-day')>-1) {
+                    $('body').attr('style', "background-image: url(https://crystalseye.files.wordpress.com/2011/08/dsc_0724.jpg)" );
+                    
+                }else if (data.currently.icon.indexOf('cloudy-day')>-1) {
+                    $('body').attr('style', "background-image: url(http://www.westessexnow.com/uploads/3/0/7/7/30776419/2885104_orig.jpg)" );
+                }else if (data.currently.icon.indexOf('rain')>-1) {
+                    $('body').attr('style', "background-image: url(http://webneel.com/wallpaper/sites/default/files/images/04-2013/creative-rain_0.preview.jpg)" );
+                }else if (data.currently.icon.indexOf('clear-night')>-1) {
+                    $('body').attr('style', "background-image: url(https://c1.staticflickr.com/9/8332/8080220418_cb4d55523b_b.jpg)" );
+                }else if(data.currently.icon.indexOf('cloudy-night')>-1) {
+                    $('body').attr('style', 'background-image: url(https://c1.staticflickr.com/7/6141/6003862755_68ec3a561d_b.jpg)')
+                }
+
+                //forecast
+                var next_day = new Date(data.daily.data[1].time*1000);
+                var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                $('#next').html(days[next_day.getDay()] + ' '+next_day.getDate());
+                $('#next_max').html(Math.floor(data.daily.data[1].temperatureMax));
+                $('#next_min').html(Math.floor(data.daily.data[1].temperatureMin));
+                var next1_day = new Date(data.daily.data[2].time*1000);
+                $('#next1').html(days[next1_day.getDay()] + ' '+next1_day.getDate());
+                $('#next1_max').html(Math.floor(data.daily.data[2].temperatureMax));
+                $('#next1_min').html(Math.floor(data.daily.data[2].temperatureMin));
+                var next2_day = new Date(data.daily.data[3].time*1000);
+                $('#next2').html(days[next2_day.getDay()] + ' '+next2_day.getDate());
+                $('#next2_max').html(Math.floor(data.daily.data[3].temperatureMax));
+                $('#next2_min').html(Math.floor(data.daily.data[3].temperatureMin));
+                var next3_day = new Date(data.daily.data[4].time*1000);
+                $('#next3').html(days[next3_day.getDay()] + ' '+next3_day.getDate());
+                $('#next3_max').html(Math.floor(data.daily.data[4].temperatureMax));
+                $('#next3_min').html(Math.floor(data.daily.data[4].temperatureMin));
+                var next4_day = new Date(data.daily.data[5].time*1000);
+                $('#next4').html(days[next4_day.getDay()] + ' '+next4_day.getDate());
+                $('#next4_max').html(Math.floor(data.daily.data[5].temperatureMax));
+                $('#next4_min').html(Math.floor(data.daily.data[5].temperatureMin));
+                var next5_day = new Date(data.daily.data[6].time*1000);
+                $('#next5').html(days[next5_day.getDay()] + ' '+next5_day.getDate());
+                $('#next5_max').html(Math.floor(data.daily.data[6].temperatureMax));
+                $('#next5_min').html(Math.floor(data.daily.data[6].temperatureMin));
+                //$('#expand').slideDown(1600);
+
+
+
+                
+                //change C to F
+                $('#change').click(function(){
+                   if ($('#temp').text().indexOf('C')>-1){
+                        $('#temp').html(temp*9/5+32 + '&deg;F');
+                        $('#infor').html('Feels like: ' + (temp*9/5+32) +'&deg;F' + '&emsp;&nbsp;' + 'Wind: ' + data.currently.windSpeed + ' m/s' + '&emsp;&nbsp;' + 'Humidity: ' + data.currently.humidity*100 +'%');
+                        $('#change').text('C');
+                        $('#next_max').html(Math.floor(data.daily.data[1].temperatureMax*9/5+32));
+                        $('#next_min').html(Math.floor(data.daily.data[1].temperatureMin*9/5+32));
+                        $('#next1_max').html(Math.floor(data.daily.data[2].temperatureMax*9/5+32));
+                        $('#next1_min').html(Math.floor(data.daily.data[2].temperatureMin*9/5+32));
+                        $('#next2_max').html(Math.floor(data.daily.data[3].temperatureMax*9/5+32));
+                        $('#next2_min').html(Math.floor(data.daily.data[3].temperatureMin*9/5+32));
+                        $('#next3_max').html(Math.floor(data.daily.data[4].temperatureMax*9/5+32));
+                        $('#next3_min').html(Math.floor(data.daily.data[4].temperatureMin*9/5+32));
+                        $('#next4_max').html(Math.floor(data.daily.data[5].temperatureMax*9/5+32));
+                        $('#next4_min').html(Math.floor(data.daily.data[5].temperatureMin*9/5+32));
+                        $('#next5_max').html(Math.floor(data.daily.data[6].temperatureMax*9/5+32));
+                        $('#next5_min').html(Math.floor(data.daily.data[6].temperatureMin*9/5+32));
+                   }else{
+                        $('#temp').html(Math.floor(temp) + '&deg;C');
+                        $('#infor').html('Feels like: ' + temp +'&deg;C' + '&emsp;&nbsp;' + 'Wind: ' + data.currently.windSpeed + ' m/s' + '&emsp;&nbsp;' + 'Humidity: ' + data.currently.humidity*100 +'%');
+                        $('#change').text('F');
+                        $('#next_max').html(Math.floor(data.daily.data[1].temperatureMax));
+                        $('#next_min').html(Math.floor(data.daily.data[1].temperatureMin));
+                        $('#next1_max').html(Math.floor(data.daily.data[2].temperatureMax));
+                        $('#next1_min').html(Math.floor(data.daily.data[2].temperatureMin));
+                        $('#next2_max').html(Math.floor(data.daily.data[3].temperatureMax));
+                        $('#next2_min').html(Math.floor(data.daily.data[3].temperatureMin));
+                        $('#next3_max').html(Math.floor(data.daily.data[4].temperatureMax));
+                        $('#next3_min').html(Math.floor(data.daily.data[4].temperatureMin));
+                        $('#next4_max').html(Math.floor(data.daily.data[5].temperatureMax));
+                        $('#next4_min').html(Math.floor(data.daily.data[5].temperatureMin));
+                        $('#next5_max').html(Math.floor(data.daily.data[6].temperatureMax));
+                        $('#next5_min').html(Math.floor(data.daily.data[6].temperatureMin));
+
+                   }
+               })
+
+
+            }   
+
+        })
+        })};
+    });
+        
+</script>
+
+<style>
+    body{
+        width: 100%;
+        height: auto;
+        }
+
+    .bg { 
+        background: url("http://previsaconsultoria.com.br/wp-content/uploads/2015/07/background-wallpapers-sky-beautiful-blue-pictures-fields-white-flowers.jpg")no-repeat center fixed;
+        }
+    
+    .box {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding-bottom: 20px;
+        
+    }
+
+    h3{
+        font-size: 1.8vw;
+    }
+   
+    </style>
+</head>
+
+
+<body class="bg">
+<div id='open' class="container text-center" style="background-color: rgba(0, 0, 0, 0.2); color: white; margin-top: 30px;">
+    
+    <p id='location'>Location</p><br>
+    <canvas id="icon1" width="100" height="100"></canvas>
+    <h1 id='temp' style="display: inline-block; font-size: 40px">temperature</h1>
+    <a id='change' style="display: inline-block; color:cadetblue; font-size: 15px">F</a>
+    <h2 id='forecast' >forecast</h2>
+    <p id='time'>time</p>
+    <p id='infor'>Infor</p>
+    
+</div>
+<br>
+<div id='expand' class="container-fluid text-center" style="color: white;  margin: 10px">
+    <div  class="row">
+        <div  class="col-xs-2 box">
+            <h3 id='next'>next</h3>
+            <p id='next_max' style="font-size: 20px"></p>
+            <p id='next_min'></p>
+            <canvas id="next_icon" width="45%" height="45%"></canvas>
+        </div>
+        <div class="col-xs-2 box">
+            <h3 id='next1'>next</h3>
+            <p id='next1_max' style="font-size: 20px"></p>
+            <p id='next1_min'></p>
+            <canvas id="next1_icon" width="45%" height="45%"></canvas>
+        </div>
+        <div class="col-xs-2 box">
+             <h3 id='next2'>next</h3>
+            <p id='next2_max' style="font-size: 20px"></p>
+            <p id='next2_min'></p>
+            <canvas id="next2_icon" width="45%" height="45%"></canvas>
+        </div>
+        <div class="col-xs-2 box">
+             <h3 id='next3'>next</h3>
+            <p id='next3_max' style="font-size: 20px"></p>
+            <p id='next3_min'></p>
+            <canvas id="next3_icon" width="45%" height="45%"></canvas>
+        </div>
+        <div class="col-xs-2 box">
+             <h3 id='next4'>next</h3>
+            <p id='next4_max' style="font-size: 20px"></p>
+            <p id='next4_min'></p>
+            <canvas id="next4_icon" width="45%" height="45%"></canvas>
+        </div>
+        <div class="col-xs-2 box">
+             <h3 id='next5'>next</h3>
+            <p id='next5_max' style="font-size: 20px"></p>
+            <p id='next5_min'></p>
+            <canvas id="next5_icon" width="45%" height="45%"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+</html>
