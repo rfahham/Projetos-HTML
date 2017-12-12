@@ -1,0 +1,780 @@
+window.hzmr = window.hzmr || [];
+/************* Start HoverCardRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ajaz.Services.getHoverCardData = function (dataType, dataId, onSuccess) {
+			var params = [
+				{name:'type', value: dataType},
+				{name:'id', value: dataId}
+			];
+			var url = '/hoverCard';
+			
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess);
+		};
+	    
+
+window.hzmr.push("HoverCardRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End HoverCard Ajax Connector  **************/
+/************* Start FollowRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ajaz.Services.updateFavorite = function(action,objectId,objectType,onSuccess,extras) {
+			var params = [
+				{name:'op',value:action},
+				{name:'i',value:objectId},
+				{name:'t',value:objectType}
+			];
+			
+			var url = "\/follow";
+			
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		}
+		
+		HZ.ajaz.Services.updateFollow = function(operation,username,onSuccess,extras) {
+			if (operation != "f" && operation != "u") {
+				return false; // invalid operation
+			}
+			
+			var params = [
+				{name:'op',value:operation},
+				{name:'u',value:username}
+			];
+			
+			var url = "\/follow";
+			
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		}
+
+	
+
+window.hzmr.push("FollowRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End Follow Ajax Connector  **************/
+/************* Start LikeRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ns("HZ.ajaz.Like");
+		HZ.ajaz.Like.like = function(action,objectId,objectType,onSuccess,extras) {
+			var params = [
+				{name:'action',value:action},
+				{name:'objectId',value:objectId},
+				{name:'objectType',value:objectType}
+			];
+			
+			var url = "\/like";
+			
+			return HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		};
+		HZ.ajaz.Like.SOURCE_LINK_LIKE = 8;
+	
+
+window.hzmr.push("LikeRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End Like Ajax Connector  **************/
+/************* Start CommentManagerAjaxRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script>
+
+				HZ.ajaz.Services.getComments = function(objectType, objectId, numItems, endId, startId, source, languages, isReferrerGalleryFeed, onSuccess, extras) {
+			var params = [
+				{name:'op',value:'getComments'}
+			];
+
+			if (typeof objectType != 'undefined' && objectType != null)
+				params.push({name:'objectType',value:objectType});
+			if (typeof objectId != 'undefined' && objectId != null)
+				params.push({name:'objectId',value:objectId});
+			if (typeof numItems != 'undefined' && numItems != null)
+				params.push({name:'itemsPerPage',value:numItems});
+			if (typeof endId != 'undefined' && endId != null)
+				params.push({name:'fromId',value:endId});
+			if (typeof startId != 'undefined' && startId != null)
+				params.push({name:'startId',value:startId});
+			if (typeof source != 'undefined' && source != null)
+				params.push({name:'source',value:source});
+			if (typeof languages != 'undefined' && languages != null)
+				params.push({
+					name: 'preferredLanguages',
+					value: languages
+				});
+			if (typeof isReferrerGalleryFeed != 'undefined' && isReferrerGalleryFeed != null) {
+				params.push({
+					name: 'isReferrerGalleryFeed',
+					value: isReferrerGalleryFeed
+				})
+			}
+
+			var url = "\/commentManagerAjaxRequest";
+						HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		};
+
+
+				HZ.ajaz.Services.deleteComment = function(objectType, objectId, commentId, onSuccess, extras) {
+			var params = [
+				{name:'op',value:'deleteComment'}
+			];
+
+			if (typeof objectType != 'undefined' && objectType != null)
+				params.push({name:'objectType',value:objectType});
+			if (typeof objectId != 'undefined' && objectId != null)
+				params.push({name:'objectId',value:objectId});
+			if (typeof commentId != 'undefined' && commentId != null)
+				params.push({name:'commentId',value:commentId});
+
+			var url = "\/commentManagerAjaxRequest";
+						HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		};
+
+				HZ.ajaz.Services.updateComment = function(objectType, objectId, commentId, body, privacy, source, isHtml, onSuccess, extras) {
+			var params = [
+				{name:'op',value:'updateComment'}
+			];
+			if (typeof objectType != 'undefined' && objectType != null)
+				params.push({name:'objectType',value:objectType});
+			if (typeof objectId != 'undefined' && objectId != null)
+				params.push({name:'objectId',value:objectId});
+			if (typeof commentId != 'undefined' && commentId != null)
+				params.push({name:'commentId',value:commentId});
+			if (typeof body != 'undefined' && body != null)
+				params.push({name:'body',value:body});
+			if (typeof privacy != 'undefined' && privacy != null)
+				params.push({name:'privacy',value:privacy});
+			if (typeof source != 'undefined' && source != null)
+				params.push({name:'source',value:source});
+			if (typeof isHtml != 'undefined' && isHtml != null)
+				params.push({name:'isHtml',value:isHtml});
+
+			var url = "\/commentManagerAjaxRequest";
+						HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		};
+
+
+		
+
+window.hzmr.push("CommentManagerAjaxRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End CommentManagerAjax Ajax Connector  **************/
+/************* Start FeedAjaxRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script>
+
+				HZ.ajaz.Services.getOutgoingFeedStories = function(user, fromTimes, renderMode, onSuccess, extras) {
+			params = new Array();
+			params.push({name:'op',value:'getOutgoing'});
+			params.push({name:'user',value:user});
+			params.push({name:'fromTimes',value:JSON.stringify(fromTimes)});
+			params.push({name:'renderMode',value:renderMode});
+			var url = "\/feedAjaxRequest";
+			HZ.ajaz.AjaxReq.send(url,params,HZ.activityFeed.NewDataHandler(onSuccess),extras);
+		};
+
+				HZ.ajaz.Services.getIncomingFeedStories = function(user, fromTimes, renderMode, onSuccess, extras) {
+			params = new Array();
+			params.push({name:'op',value:'getIncoming'});
+			params.push({name:'user',value:user});
+			params.push({name:'fromTimes',value:JSON.stringify(fromTimes)});
+			params.push({name:'renderMode',value:renderMode});
+			var url = "\/feedAjaxRequest";
+			HZ.ajaz.AjaxReq.send(url,params,HZ.activityFeed.NewDataHandler(onSuccess),extras);
+		};
+
+		
+
+window.hzmr.push("FeedAjaxRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End FeedAjax Ajax Connector  **************/
+/************* Start ContentFlagAjaxRequest.php Ajax Connector for locale sv-SE**************/
+try {        //<script>
+            HZ.ns("HZ.ajaz.ContentFlag");
+            HZ.ajaz.ContentFlag.addFlag = function(objectType, objectId, type, comment, onSuccess, extras) {
+                var params = [
+                    {name: 'action', value: "add"},
+                    {name: 'objectType', value: objectType},
+                    {name: 'objectId', value: objectId},
+                    {name: 'type', value: type},
+                    {name: 'comment', value: comment}
+                ];
+                var url = "\/contentFlagAjax";
+                HZ.ajaz.AjaxReq.send(url, params, onSuccess, extras);
+            };
+            HZ.ajaz.ContentFlag.updateFlag = function(objectType, objectId, type, comment, status, onSuccess, extras) {
+                var params = [
+                    {name: 'action', value: "update"},
+                    {name: 'objectType', value: objectType},
+                    {name: 'objectId', value: objectId},
+                    {name: 'type', value: type},
+                    {name: 'comment', value: comment},
+                    {name: 'status', value: status}
+                ];
+                var url = "\/contentFlagAjax";
+                HZ.ajaz.AjaxReq.send(url, params, onSuccess, extras);
+            };
+            HZ.ajaz.ContentFlag.removeFlag = function(objectType, objectId, onSuccess, extras) {
+                var params = [
+                    {name: 'action', value: "remove"},
+                    {name: 'objectType', value: objectType},
+                    {name: 'objectId', value: objectId}
+                ];
+                var url = "\/contentFlagAjax";
+                HZ.ajaz.AjaxReq.send(url, params, onSuccess, extras);
+            };
+            HZ.ajaz.ContentFlag.COMMENTABLE_FORUM = 4;
+            HZ.ajaz.ContentFlag.COMMENTABLE_GALLERY = 2;
+            HZ.ajaz.ContentFlag.COMMENT = 9;
+            HZ.ajaz.ContentFlag.ANSWER = 6;
+            
+
+window.hzmr.push("ContentFlagAjaxRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End ContentFlagAjax Ajax Connector  **************/
+/************* Start GetMinimalSpaceDataRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ajaz.Services.getMinimalSpaceData = function (matchedUrlString, onSuccess) {
+			var params = [
+				{name:'urls',value: matchedUrlString}
+			];
+			var url = '/getMinimalSpaceData';
+			
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess);
+		};
+		
+
+window.hzmr.push("GetMinimalSpaceDataRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End GetMinimalSpaceData Ajax Connector  **************/
+/************* Start ClippingRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script>
+			HZ.ns("HZ.ajaz.Clipping");
+			HZ.ajaz.Clipping.clip = function(action,objectId,objectType,onSuccess,extras) {
+				var params = [
+					{name:'action',value:action},
+					{name:'objectId',value:objectId},
+					{name:'objectType',value:objectType}
+				];
+
+				var url = "\/clipping";
+
+				return HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+			};
+			HZ.ajaz.Clipping.SOURCE_LINK_CLIPPING = 300;
+	
+
+window.hzmr.push("ClippingRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End Clipping Ajax Connector  **************/
+/************* Start SendEmailRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+HZ.ajaz.Services.sendEmail = function (to, subject, message, type, referenceId, replyToMessageId, event, sendForm, isDealerLocation, onSuccess, extras) {
+	var url = '/sendEmail';
+	var params = [
+		{name:'emailTo',value:to},
+		{name:'emailSubject',value:subject},
+		{name:'emailMessage',value:message},
+		{name:'type',value:type},
+		{name:'event',value:event}
+	];
+	if (referenceId) {
+		params.push({name:'refId',value:referenceId});
+	}
+	if (replyToMessageId) {
+		params.push({name:'replyId',value:replyToMessageId});
+	}
+	if (isDealerLocation) {
+		params.push({name: 'isdealloc', value: true})
+	}
+
+	if (sendForm) {
+		params.push({name:'__ct', value: HZ.data.CSRFToken});
+		var formOptions = {
+			data: params,
+			dataType: 'json',
+			success: onSuccess,
+			type: 'POST',
+			url: url
+		};
+		sendForm.ajaxSubmit(formOptions);
+	}
+	else {
+		HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+	}
+};
+
+HZ.ajaz.Services.sendShareEmail = function (to, subject, message, type, referenceId, event, imageUrl, link, onSuccess, extras) {
+	var url = '/sendEmail';
+	var params = [
+		{name:'emailTo',value:to},
+		{name:'emailSubject',value:subject},
+		{name:'emailMessage',value:message},
+		{name:'type',value:type},
+		{name:'event',value:event}
+	];
+	if (referenceId) {
+		params.push({name:'refId',value:referenceId});
+	}
+	if (imageUrl) {
+		params.push({name:'simgurl',value:imageUrl});
+	}
+	if (link) {
+		params.push({name:'slink',value:link});
+	}
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.sendGuestEmail = function (from, to, subject, message, type, referenceId, replyToMessageId, event, captchaResponse, isDealerLocation, onSuccess, extras) {
+	var params = [
+		{name:'emailTo',value:to},
+		{name:'emailSubject',value:subject},
+		{name:'emailMessage',value:message},
+		{name:'type',value:type},
+		{name:'refId',value:referenceId},
+		{name:'replyId',value:replyToMessageId},
+		{name:'event',value:event},
+		{name:'emailFrom',value:from},
+		{name:'cr',value:captchaResponse},
+	];
+
+	if (isDealerLocation) {
+		params.push(
+			{ name: 'isdealloc', value: true }
+		);
+	}
+	var url = '/sendEmail';
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ns("HZ.sendEmail.types");
+HZ.sendEmail.types = {
+	SPACE: 3,
+	GALLERY: 1,
+	QUESTION: 5,
+	PRO: 10,
+	PRO_REPLY: 23,
+	MP: 16,
+	MP_SELLER: 17,
+	MP_BUYER: 39,
+	SURVEY: 28,
+	SHARE_COLOR_PALETTE: 43,
+	USER: 2,
+	USER_REPLY: 48};
+HZ.ns("HZ.sendEmail.events");
+HZ.sendEmail.events = {
+	BTN: "en_send_btn_photo",
+	ADDTOIBK: "en_send_addtoibk_photo",
+	SHARECP: "scp",
+	ADDTOIBK_SHARE_EMAIL: "addibk_share_email",
+	SEND_BTN_ADDTOIBK_SHARE_EMAIL: "send_btn_addibk_share_email",
+	ADDTOIBK_SHARE_EMAIL_SEND: "addibk_share_email_send"
+};
+HZ.ns("HZ.sendEmail.texts");
+HZ.sendEmail.texts = {
+	DEFAULT_MESSAGE_SPACE: "Ta en titt på detta fantastiska rum som jag hittade på Houzz och berätta vad du tycker.",
+	DEFAULT_MESSAGE_PRODUCT: "Kolla in den här produkten jag hittade på Houzz, och berätta gärna för mig vad du tycker!",
+	DEFAULT_MESSAGE_GALLERY: "Ta en titt på dessa fantastiska rum som jag hittade på Houzz och berätta vad du tycker.",
+	DEFAULT_MESSAGE_QUESTION: "Ta en titt på den här diskussionen som jag hittade på Houzz, och berätta för mig vad du tycker!",
+	DEFAULT_MESSAGE_COLOR_PALETTE: "Kolla in den här färgpaletten jag skapade på Houzz.",
+	CONFIRM_MESSAGE_SENT: "Meddelandet har skickats.",
+	CONFIRM_EMAIL_SENT: "E-mail skickat",
+	ERROR_TO_EMPTY: "Ange ett ämne för e-mail.",
+	ERROR_SUBJECT_EMPTY: "Ange ett ämne för e-mail.",
+	ERROR_MESSAGE_EMPTY: "Skriv ett e-mail.",
+	ERROR_EMAIL_ADDRESSES_EMPTY: "Ange mottagarnas e-mailadresser, separerade med kommatecken.",
+	ERROR_PRO_CONFIRM_INQUIRY_NOT_AGREE: "Bekräfta att den här projektförfrågan avser privat bruk.",
+	ERROR_INVALID_TO_EMAIL_ADDRESSES: "Ange mottagarnas e-mailadresser, separerade med kommatecken.",
+	ERROR_INVALID_FROM_EMAIL_ADDRESS: "Ange en giltig e-mailadress.",
+	ERROR_NO_PHONE: "Please enter your phone.",
+	ERROR_NO_ZIP: "Ange postnummer.",
+};
+HZ.ajaz.Services.sendEmail.ERROR_RECOVERABLE = 1;
+HZ.ajaz.Services.sendEmail.ERROR_FATAL = 2;
+
+
+window.hzmr.push("SendEmailRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End SendEmail Ajax Connector  **************/
+/************* Start CurrentSessionUserInfoRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ns('HZ.ajaz.Services.User');
+		HZ.ajaz.Services.User.getCurrentSessionUserEmail = function (onSuccess, extras) {
+			var params = [
+				{name:'ac', value:'getEmail'}
+			];
+			var url = "\/currentSessionUserInfo";
+			return HZ.ajaz.AjaxReq.send(url, params, onSuccess, extras);
+		};
+		
+
+window.hzmr.push("CurrentSessionUserInfoRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End CurrentSessionUserInfo Ajax Connector  **************/
+/************* Start SetVisitorPropertyRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ajaz.Services.setVisitorProperty = function(propertyName, value, onSuccess, extras) {
+			var params = [
+				{name:'prop', value:propertyName},
+				{name:'v', value:value}
+			];
+			var url = "\/setVisitorProperty";
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		};
+		
+		HZ.ajaz.Services.COOKIE_BANNER = "cookieBanner";
+	    
+
+window.hzmr.push("SetVisitorPropertyRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End SetVisitorProperty Ajax Connector  **************/
+/************* Start SearchSuggestionRequest.php Ajax Connector for locale sv-SE**************/
+try {		HZ.ajaz.Services.searchTypeAhead = function(textFragment, searchType, onSuccess, extras) {
+			var params = [
+				{name:'query',value:textFragment},
+				{name:'type',value:searchType}
+			];
+			var url = "\/searchSuggestion";
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		}
+		
+
+window.hzmr.push("SearchSuggestionRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End SearchSuggestion Ajax Connector  **************/
+/************* Start VerificationEmailRequest.php Ajax Connector for locale sv-SE**************/
+try {        //<script>
+            HZ.ajaz.Services.sendVerificationEmail = function(operation, isNewUser, onSuccess, extras) {
+                var params = [
+                    {name:'op', value: operation},
+                    {name:'isNewUser', value: isNewUser}
+                ];
+                var url = "\/verificationEmail";
+                HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+            };
+	    
+
+window.hzmr.push("VerificationEmailRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End VerificationEmail Ajax Connector  **************/
+/************* Start NoOpRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script type="text/javascript">
+HZ.ns("HZ.ajaz.NoOP");
+
+HZ.ajaz.Services.setSession = function(url, onSuccess, extras) {
+	
+	extras = extras || {};
+	extras.dataType = "jsonp";
+	extras.crossDomain = true;
+	extras.type = "GET";
+	
+	HZ.ajaz.AjaxReq.send(url,[],onSuccess,extras);
+};
+
+//</script>
+	
+
+window.hzmr.push("NoOpRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End NoOp Ajax Connector  **************/
+/************* Start AuthorizeRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script type="text/javascript">
+HZ.ns("HZ.ajaz.Authorize");
+	
+HZ.ajaz.Services.fbSignUp = function(onSuccess, redirectUrl, defaultEmail, extras, reAuth) {
+	var reAuthValue = reAuth ? "1" : "0";
+	var defaultEmailValue = defaultEmail ? defaultEmail : "";
+	var params = [
+		{name:'op',value:'f'},
+		{name:'a',value:HZ.sns.JsSdk.fb.getFbAppId()},
+		{name:'fbtoken',value:HZ.sns.JsSdk.fb.getFbAccessToken()},
+		{name:'ss',value:HZ.auth.Manager.getSignupSource()},
+		{name:'sp',value:HZ.auth.Manager.getSourcePage()},
+		{name:'fbra',value:reAuthValue},
+		{name:'e',value:defaultEmailValue},
+		{name:'rdr',value:HZ.utils.Links.base64Encode(redirectUrl)},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	extras = extras || {};
+	extras.dataType = "jsonp";
+	extras.type = "GET";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.googleSignUp = function(onSuccess, googleOneTimeAuthCode, redirectUrl, extras) {
+	var params = [
+		{name: 'op', value: 'g'},
+		{name: 'ss', value: HZ.auth.Manager.getSignupSource()},
+		{name: 'sp', value: HZ.auth.Manager.getSourcePage()},
+		{name: 'gCode', value: encodeURIComponent(googleOneTimeAuthCode)},
+		{name: 'rdr', value: HZ.utils.Links.base64Encode(redirectUrl)},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+
+	var url = "https:\/\/www.houzz.se\/authorize";
+
+	extras = extras || {};
+	extras.dataType = "jsonp";
+	extras.type = "GET";
+
+	HZ.ajaz.AjaxReq.send(url, params, onSuccess, extras);
+};
+
+HZ.ajaz.Services.removeFbLogin = function(onSuccess, extras) {
+	var params = [
+		{name:'op',value:'fbr'},
+		{name:'a',value:HZ.sns.JsSdk.fb.getFbAppId()},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.enableFbLogin = function(fbAccessToken, onSuccess, extras) {
+	var params = [
+		{name:'op',value:'fbl'},
+		{name:'a',value:HZ.sns.JsSdk.fb.getFbAppId()},
+		{name:'fbtoken',value:fbAccessToken},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.enableGoogleLogin = function(onSuccess, authCode, extras) {
+	var params = [
+		{name:'op',value:'gl'},
+		{name: 'gCode', value: authCode},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+
+	var url = "https:\/\/www.houzz.se\/authorize";
+
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.signup = function(username, duck, email, sourceLink, rcCha, rcResp, redirect, onSuccess, extras) {
+	var params = [
+		{name:'op',value:'s'},
+		{name:'un',value:username},
+		{name:'pwd',value:duck},
+		{name:'e',value:email},
+		{name:'ss',value:sourceLink},
+		{name:'sp',value:HZ.auth.Manager.getSourcePage()},
+		{name:'recaptcha_challenge_field',value:rcCha},
+		{name:'recaptcha_response_field',value:rcResp},
+		{name:'rdr',value:redirect},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+
+	var wrapperCallbackFn = function(response) {
+		if (response && response.success && response.success == "true") {
+			if (response[HZ.ajaz.Authorize.JSON_KEY_CV])
+				HZ.data.CSRFToken = response[HZ.ajaz.Authorize.JSON_KEY_CV];
+		}
+
+		onSuccess(response);
+	};
+
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,wrapperCallbackFn,extras);
+};
+
+HZ.ajaz.Services.signIn = function(username, duck, keep, redirectUrl, onSuccess, extras) {
+	var params = [
+		{name:'op',value:'l'},
+		{name:'un',value:username},
+		{name:'pwd',value:duck},
+		{name:'rdr',value:redirectUrl},
+		{name:'k',value:keep},
+		{name:'jt',value:encodeURIComponent(HZ.data.CSRFToken)}
+	];
+	
+	var wrapperCallbackFn = function(response) {
+		if (response && response.success && response.success == "true") {
+			if (response[HZ.ajaz.Authorize.JSON_KEY_CV])
+				HZ.data.CSRFToken = response[HZ.ajaz.Authorize.JSON_KEY_CV];
+		}
+		
+		onSuccess(response);
+	};
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,wrapperCallbackFn,extras);
+};
+
+HZ.ajaz.Services.proSignup = function(onSuccess, extras) {
+	var params = [
+		{name:'op',value:'ps'},
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Services.authCheckName = function(username, onSuccess, extras) {
+	var params = [
+		{name:'op',value:'u'},
+		{name:'un',value:username}
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+
+HZ.ajaz.Authorize.emailCheckCache = {};
+
+HZ.ajaz.Authorize.authCheckEmail = function(email, onSuccess, extras) {
+	if (HZ.ajaz.Authorize.emailCheckCache[email]) {
+		// check has already been run, return cached value
+		onSuccess(HZ.ajaz.Authorize.emailCheckCache[email]);
+		return;
+	}
+	var params = [
+		{name:'op',value:'e'},
+		{name:'e',value:email}
+	];
+	
+	var url = "https:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,
+		function(resp) {
+			if (resp && resp.success && resp.success == "true") {
+				// cache this result for future queries
+				HZ.ajaz.Authorize.emailCheckCache[email] = resp;
+			}
+
+			onSuccess(resp);
+	    },
+	extras);
+};
+
+HZ.ajaz.Authorize.JSON_KEY_REDIRECT_URL = "redirectUrl";
+HZ.ajaz.Authorize.JSON_KEY_EMAIL = "email";
+HZ.ajaz.Authorize.JSON_KEY_IS_VALID = "valid";
+HZ.ajaz.Authorize.JSON_KEY_REDIRECT_URL = "redirectUrl";
+HZ.ajaz.Authorize.JSON_KEY_CREATE_PRO_PROFILE_URL = "createProProfieUrl";
+HZ.ajaz.Authorize.JSON_KEY_SURL = "sUrl";
+HZ.ajaz.Authorize.JSON_VALUE_OK = "ok";
+HZ.ajaz.Authorize.JSON_VALUE_MALFORMED = "m";
+HZ.ajaz.Authorize.JSON_VALUE_INVALID = "i";
+HZ.ajaz.Authorize.USER_TYPE_PRO_SIGNUP = "4";
+HZ.ajaz.Authorize.USER_TYPE_HOMEOWNER = "1";
+HZ.ajaz.Authorize.JSON_KEY_CV = "cv";
+
+HZ.ajaz.Services.sendInvitations = function(emailList, onSuccess, extras) {
+	var params = [
+		{name:'op',value:'i'},
+		{name:'ie',value:emailList}
+	];
+	
+	var url = "http:\/\/www.houzz.se\/authorize";
+	
+	HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+};
+//</script>
+	
+
+window.hzmr.push("AuthorizeRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End Authorize Ajax Connector  **************/
+/************* Start JsErrorLoggerAjaxRequest.php Ajax Connector for locale sv-SE**************/
+try {//<script>
+		HZ.ajaz.Services.logJsErr = function(errLog) {
+			var rrid = errLog['rrid'],
+				m = errLog['m'],
+				f = errLog['f'],
+				l = errLog['l'],
+				url = errLog['url'],
+				cws = errLog['cws'],
+				b = navigator.appName,
+				v = navigator.appVersion,
+				ce = navigator.cookieEnabled,
+				p = navigator.platform,
+				j = errLog['j'],
+				st = errLog['st'],
+				pc = errLog['pc'],
+				r = (document.referrer ? encodeURIComponent(document.referrer) : ""),
+				rv = "";
+			if (window.hzmr && window.hzmr.version) {
+				rv= window.hzmr.version;
+			}
+		var params = [
+			{name:'rrid',value:rrid},
+			{name:'m',value:m},
+			{name:'f',value:f},
+			{name:'l',value:l},
+			{name:'url',value:url},
+			{name:'cws',value:cws},
+			{name:'b',value:b},
+			{name:'v',value:v},
+			{name:'ce',value:ce},
+			{name:'p',value:p},
+			{name:'j',value:j},
+			{name:'st',value:st},
+			{name:'pc',value:pc},
+			{name:'r',value:r},
+			{name:'rv',value:rv}
+		];
+
+		var url = "\/jsErrAjax";
+
+		HZ.ajaz.AjaxReq.send(url,params);
+	};
+	
+
+window.hzmr.push("JsErrorLoggerAjaxRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End JsErrorLoggerAjax Ajax Connector  **************/
+/************* Start SearchKeywordRequest.php Ajax Connector for locale sv-SE**************/
+try {		HZ.ajaz.Services.autoCompleteKeyword = function(textFragment, type, onSuccess, extras) {
+			var params = [
+				{name:'query',value:textFragment},
+				{name:'type',value:type}
+			];
+			var url = "\/searchKeyword";
+			HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+		}
+		
+
+window.hzmr.push("SearchKeywordRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End SearchKeyword Ajax Connector  **************/
+/************* Start GetSpaceAjaxRequest.php Ajax Connector for locale sv-SE**************/
+try {		//<script>
+			HZ.ajaz.Services.getDownloadUrl = function (houseId, onSuccess, extras) {
+				var params = [
+					{name:'houseId',value:houseId}
+				];
+
+				var url = '/getSpaceAjax';
+
+				HZ.ajaz.AjaxReq.send(url,params,onSuccess,extras);
+			};
+		
+
+window.hzmr.push("GetSpaceAjaxRequest:2403");
+} catch (err) {HZ.utils.Logger.sendJsExceptionStackTrace(err)}
+
+/*************  End GetSpaceAjax Ajax Connector  **************/
