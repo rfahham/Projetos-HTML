@@ -1,0 +1,15 @@
+<form action="http://www.soconpa.pt/webcgi/mail.asp" method="post">
+<p>
+ <input type="hidden" name="mail-paraEmail" value="geral@soconpa.pt"> </p>
+<p> 
+  Nome:&nbsp;&nbsp;&nbsp;&nbsp; <input name="nome" size="41" maxlength="40" style="WIDTH: 281px; HEIGHT: 22px"></p> 
+<p>
+  Contacto: <input name="contacto" size="41" maxlength="40" style="WIDTH: 281px; HEIGHT: 22px"><br></p>
+<p>
+  Comentários:<br><textarea style="WIDTH: 509px; HEIGHT: 102px" name="comentário" rows="5" cols="59"></textarea></p>
+<p>  
+ <input type="submit" name="submit" value="Enviar!">
+</p>
+</form>
+
+'; 

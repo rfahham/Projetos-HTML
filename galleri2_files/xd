@@ -1,4 +1,0 @@
-	if (document.cookie != null && document.cookie.length > 0) {
-	document.cookie = "xauth=1464618896; path=/; expires=Tue, 31 May 2016 07:34:56 -0700";
-	document.cookie = "v2=1464618896_f2afe031-3224-46e7-8c6e-e9cd0639e1ca_d926c4588e878acd923dc3c12c230530; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT";
-	}

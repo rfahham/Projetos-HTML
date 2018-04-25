@@ -1,13 +1,9 @@
-/*
-   
-    Template Name : SOCONPA - PINTURAS E ISOLAMENTOS
-    Author : GALO
-    Website : www.soconpa.portfoliobox.net
-    Support : https://www.facebook.com/soconpa/photos_stream?ref=page_internal
-	
-	
+/* 
+    Template Name : soconpa pinturas e isolamentos
+    Author : Ricardo Fahham
+    Website : www.soconpa.pt
+    Support : rfahham@hotmail.com
 */
-
 
 
 /*
