@@ -10,14 +10,14 @@
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<h2>Índice</h2>
 			<ul>
-				<li>Prefácio</li>
-				<li>Introdução</li>
+				<li><a href="#prefacio">Prefácio</a> </li>
+				<li><a href="#introducao">Introdução</a></li>
 				<li style="list-style: none; display: inline">
 					<ul>
 						<li>Nossa Responsabilidade</li>
 					</ul>
 				</li>
-				<li>Qualidade do código</li>
+				<li><a href="#qualidadedocodigo">Qualidade do código</a> </li>
 				<li style="list-style: none; display: inline">
 					<ul>
 						<li>Padrões de Código</li>
@@ -29,7 +29,7 @@
 						<li>Leitura Adicional</li>
 					</ul>
 				</li>
-				<li>Open Source</li>
+				<li><a href="#opensource">Open Source</a></li>
 				<li style="list-style: none; display: inline">
 					<ul>
 						<li>Sendo um mantenedor de código aberto</li>
@@ -37,7 +37,7 @@
 						<li>Leitura Adicional</li>
 					</ul>
 				</li>
-				<li>Documentação</li>
+				<li><a href="#documentacao">Documentação</a> </li>
 				<li style="list-style: none; display: inline">
 					<ul>
 						<li>As oito regras de boa documentação</li>
@@ -48,7 +48,7 @@
 						<li>Leitura Adicional</li>
 					</ul>
 				</li>
-				<li>Tratar outros desenvolvedores com respeito</li>
+				<li> <a href="#tratar">Tratar outros desenvolvedores com respeito</a> </li>
 				<li style="list-style: none; display: inline">
 					<ul>
 						<li>Viés inconsciente</li>
@@ -56,11 +56,11 @@
 						<li>Leitura Adicional</li>
 					</ul>
 				</li>
-				<li>Conclusão</li>
+				<li><a href="#conclusao">Conclusão</a> </li>
 			</ul>
 		</div>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
-			<h2>Prefácio</h2>
+			<h2 id="prefacio">Prefácio</h2>
 			<p>Como desenvolvedores da web, somos responsáveis por moldar as experiências das vidas on-line dos usuários. Ao fazer escolhas éticas e centradas no usuário, criamos uma web melhor para todos. A série Ethical Web Development visa dar uma olhada nas questões éticas do desenvolvimento web.</p>
 			<p>Com isso em mente, tentei dividir as questões éticas do desenvolvimento da Web em quatro princípios fundamentais:</p>
 			<ol>
@@ -123,7 +123,7 @@
 			<p>Este título, assim como outros da série Ethical Web Development, destina-se a tomadores de decisões da equipe de desenvolvedores da web e de desenvolvimento da Web interessados em explorar os limites éticos do desenvolvimento da web. Assumo uma compreensão básica dos tópicos fundamentais de desenvolvimento da Web, como HTML, CSS, JavaScript e HTTP. Apesar dessa suposição, fiz o melhor que pude para descrever esses tópicos de maneira acessível e compreensível.</p>
 		</div>
 		<h1>Capítulo 1</h1>
-		<h2>Introdução</h2>
+		<h2 id="introducao">Introdução</h2>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>Eu aprendi a ser um desenvolvedor web trabalhando sozinho. Tudo começou quando eu era um estudante do ensino médio em meados da década de 1990 e tive a idéia de um website. Passei muito tempo livre, em um quarto de hóspedes na casa dos meus pais, copiei e colei trechos de código HTML que encontrei clicando em Exibir → Origem no meu navegador da web. Na faculdade, me especializei em multimídia, o que exigiu duas aulas de programação. Eu participei das aulas, trabalhando nos projetos necessários sozinho no meu dormitório. Depois da faculdade, fiz uma pausa na Web para administrar uma livraria e passar o tempo ensinando, mas, alguns anos depois, meu amor pelo desenvolvimento da Web foi reavivado. Quando isso aconteceu, eu entrei novamente no mundo do desenvolvimento por meio de aprendizado independente com livros e tutoriais, eventualmente fazendo contratações independentes. Não foi até vários anos da minha carreira que me associei a outro desenvolvedor em um projeto.</p>
 			<p>Agora, minha experiência de solidão pode ser um pouco extrema, mas imagino que muitos de vocês lendo isso também tenham começado a trabalhar sozinhos. Em geral, o desenvolvimento é aprendido primeiro como uma atividade profunda e independente, mas na força de trabalho é um empreendimento altamente social. Como desenvolvedores web profissionais, frequentemente nos associamos a outros desenvolvedores para construir sistemas complexos. Para fazer isso, analisamos e criticamos o código um do outro, chegamos a entendimentos comuns, fazemos promessas, escrevemos documentação e interagimos com o código aberto de maneiras que não conseguimos fazer como aprendizes solitários.</p>
@@ -140,7 +140,7 @@
 			<p>Se definirmos a ética como “fazer escolhas que tenham o efeito mais positivo para o maior número de pessoas”, colocar ênfase na colaboração positiva é fundamental. Práticas de desenvolvimento empático levam à criação de produtos empáticos.</p>
 		</div>
 		<h1>Capítulo 2</h1>
-		<h2>Qualidade do Código</h2>
+		<h2 id="qualidadedocodigo">Qualidade do Código</h2>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>Você não é sua ideia, e se você se identifica muito de perto com suas idéias, você vai se envolver quando elas forem desafiadas. — Ed Catmull, Pixar cofounder and author of Creativity Inc.</p>
 			<p>No livro De falar sobre o amor: Uma jornada até o fim do paladar, o jornalista especializado em música Carl Wilson reflete sobre o que significa para algo ser bom. O livro centra-se no álbum Celine Dion que leva o nome, que vendeu 31 milhões de cópias e é um dos álbuns mais vendidos de todos os tempos. Apesar desse imenso sucesso, críticos de música como Wilson (e provavelmente muitos de nós lendo isso, incluindo o autor), são rápidos em dispensar a música de Celine Dion. O motivo dessa disparidade é que o gosto é subjetivo. Cada um de nós traz consigo experiências culturais únicas quando gostamos (ou não) de entretenimento e arte. O filósofo do século XVIII David Hume explorou essas idéias em detalhes, mais notavelmente em seu ensaio “Do Padrão do Gosto”, afirmando que “a beleza não é qualidade nas próprias coisas: existe apenas na mente que as contempla. "</p>
@@ -332,40 +332,40 @@
 			<h2>Testes Unitários</h2>
 			<p>A maneira mais direta de pensar em um teste de unidade é como uma forma de testar um aspecto muito pequeno do nosso código. Normalmente, isso seria testar se uma função ou método individual retorna o valor esperado. Considere o exemplo a seguir, escrito em JavaScript (o formato de teste é baseado na estrutura de teste <a href="https://mochajs.org/">Mocha</a> com a biblioteca de asserção <a href="http://www.chaijs.com/">Chai</a> ).</p>
 			<p>Gostaríamos de escrever uma função (chamada stayPositive) que sempre retornasse um número positivo quando passasse um valor. Vamos primeiro escrever nosso teste, que espera que um número positivo (2) seja igual a chamar nossa função e passar o valor 2.</p>
-			it('should return a positive number when passed a positive',
+	<pre>
+            it('should return a positive number when passed a positive',
       function() {
         expect(stayPositive(2)).to.equal(2);
       }
 );
-
-
-			<p>Atualmente, esse teste falharia, então vamos escrever a função:</p>
-			
+</pre>
+	<p>Atualmente, esse teste falharia, então vamos escrever a função:</p>
+	<pre>
 
 var stayPositive = function(num) {
       return num;
 }
-		<p>Se fizermos o teste novamente, ele passará, mas e se nós escrevermos um teste com um número negativo?</p>
-
+</pre>
+	<p>Se fizermos o teste novamente, ele passará, mas e se nós escrevermos um teste com um número negativo?</p>
+	<pre>
  it('should return a positive number when passed a negative',
       function() {
        expect(stayPositive(-2)).to.equal(2);
       }
 );
-
-			<p>No exemplo acima, estamos passando um valor de -2 e esperando que nossa função retorne um valor positivo de 2. Com base em nosso código, isso falharia, para que possamos reescrever nossa função para considerar números negativos:</p>
-			
+</pre>
+	<p>No exemplo acima, estamos passando um valor de -2 e esperando que nossa função retorne um valor positivo de 2. Com base em nosso código, isso falharia, para que possamos reescrever nossa função para considerar números negativos:</p>
+	<pre>
 var stayPositive = function(num) {
-      if(num > 0) {
+      if(num &gt; 0) {
         return num;
       } else {
 return -num;
 }
 }
-
-			<p>Agora, se fôssemos executar nossos testes de unidade, eles passariam! Viva! Mas e se o usuário passou um 0 ou uma string? Como o nosso programa lidaria com isso?</p>
-			
-
+</pre>
+	<p>Agora, se fôssemos executar nossos testes de unidade, eles passariam! Viva! Mas e se o usuário passou um 0 ou uma string? Como o nosso programa lidaria com isso?</p>
+	<pre>
 it('should return 0 when passed 0', function() {
       expect(stayPositive(0)).to.equal(0);
 });
@@ -373,7 +373,9 @@ it('should return 0 when passed 0', function() {
       expect(stayPositive('Hello')).to.be.an('error');
 });
 
-			
+</pre>
+
+
 			<p>Podemos, então, modificar nosso código para manipular adequadamente esses tipos de entradas. Escrever testes unitários como esses nos permite garantir que nossos aplicativos sejam robustos e capazes de lidar com uma variedade de possíveis resultados.</p>
 		</div>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
@@ -524,7 +526,7 @@ it('should return 0 when passed 0', function() {
 </div>
 
 		<h1>Capítulo 3</h1>
-		<h2>Open Source</h2>
+		<h2 id="opensource">Open Source</h2>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>A knotty puzzle may hold a scientist up for a century, when it may be that a colleague has the solution already and is not even aware of the puzzle that it might solve. —Isaac Asimov, e Robots of Dawn</p>
 			<p>Eu não "peguei" o software de código aberto na primeira vez que o vi conscientemente. Eu era um jovem professor com foco em tecnologia, apenas me esforçando, e meu interesse por tecnologia excedia a minha renda dispensável. Isso significa que, a princípio, o software de código aberto era, aos meus olhos, um substituto para apoiar meus interesses, ao mesmo tempo em que evitava tanto comprar software caro quanto piratear ilegalmente. Gradualmente, aconteceu uma coisa engraçada: deixei de ver as ferramentas de código aberto como opções menores e passei a abraçar tanto o software quanto a comunidade do entorno. Isso se transformou em um sentimento de reverência quando viesse a respeitar muito a quantidade de colaboração assíncrona voluntária e de longa distância que envolvia a construção de softwares completos.</p>
@@ -672,7 +674,7 @@ it('should return 0 when passed 0', function() {
 		</ul>
 	</div>
 		<h1>Capítulo 4</h1>
-		<h2>Documentation</h2>
+		<h2 id="documentacao">Documentação</h2>
 		<p>Escrever é um trabalho árduo. Uma sentença clara não é por acaso. —William Zinsser, author of On Writing Well</p>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>Vou começar este capítulo descrevendo dois cenários comuns na vida de um desenvolvedor.</p>
@@ -788,7 +790,7 @@ it('should return 0 when passed 0', function() {
 		</ul>
 	</div>
 		<h1>Capítulo 5</h1>
-		<h2>Tratar outros desenvolvedores com respeito</h2>
+		<h2 id="tratar">Tratar outros desenvolvedores com respeito</h2>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>Este será o capítulo mais curto da série, mas é provavelmente o mais importante. É fundamental que tratemos nossos colegas com respeito. A principal maneira de fazer isso é trabalhar para criar um ambiente inclusivo e seguro para todos, independentemente de sexo, raça, orientação sexual, idade ou origem cultural. Seja on-line, no trabalho, em um encontro ou participando de uma conferência, seja gentil e respeitoso com as pessoas ao seu redor. Neste capítulo, abordaremos brevemente o viés inconsciente e criaremos ambientes inclusivos.</p>
 		</div>
@@ -850,7 +852,7 @@ it('should return 0 when passed 0', function() {
 			</li>
 		</ul>
 		<h1>Capítulo 6</h1>
-		<h2>Conclusão</h2>
+		<h2 id="conclusao">Conclusão</h2>
 		<div class="shadow-sm p-3 mb-5 bg-white rounded">
 			<p>Obrigado por dedicar um tempo para ler o Desenvolvimento da Web colaborativa. Espero que, ao ler este título, você veja o valor na criação de um ambiente de desenvolvedor inclusivo que se concentre na qualidade e aproveite a comunidade de código aberto. Isso engloba uma pequena parte do trabalho que podemos fazer como desenvolvedores da Web para garantir que a Web seja um espaço aberto e acessível para todos os usuários. Minha esperança é que agora você se sinta empoderado e empolgado para criar aplicativos dessa maneira.</p>
 			<p>Se ao longo de sua leitura você se deparar com coisas que estão faltando ou que poderiam ser melhoradas, eu o encorajaria a contribuir com o livro. Este título está disponível como código aberto em <a href="https://%20github.com/ascott1/ethical-web-dev/">https:// github.com/ascott1/ethical-web-dev/</a> . As contribuições podem ser feitas por:</p>
