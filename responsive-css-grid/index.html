@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>responsive-css-grid</title>
-	<style type="text/css">
-body {
+  <title>responsive-css-grid</title>
+  <style type="text/css">
+
+  * {
+padding:0;
+margin:0;
+vertical-align:baseline;
+list-style:none;
+border:0
+}
+
+    body {
   padding: 20px;
   font-family: Helvetica;
   background-color: #20262e;
@@ -14,6 +23,7 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   grid-gap: 10px;
   list-style-type: none;
+
 }
 
 li {
@@ -21,6 +31,7 @@ li {
   border-radius: 3px;
   padding: 20px;
   font-size: 14px;
+  text-align: center;
 }
 
 .info {
@@ -29,10 +40,10 @@ li {
   padding-top: 20px;
   color: #fff;
 }
-	</style>
+  </style>
 </head>
 <body>
-	<ul>
+  <ul>
   <li>A</li>
   <li>B</li>
   <li>C</li>
