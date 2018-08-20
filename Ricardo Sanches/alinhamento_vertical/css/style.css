@@ -58,5 +58,5 @@ img {
 	grid-template-columns: 50% 50%;
 	grid-template-rows: auto;
 	grid-template-areas: 
-		"img-header text-header";
+	"img-header text-header";
 }
